@@ -21,6 +21,12 @@
 		262A450F26A68DD100873740 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A450E26A68DD100873740 /* ScannerViewController.swift */; };
 		262A451826A94B3000873740 /* AlcoholTypeApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A451726A94B3000873740 /* AlcoholTypeApiModel.swift */; };
 		262A451A26A94B5D00873740 /* AlcoholTypeApiProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A451926A94B5D00873740 /* AlcoholTypeApiProcessor.swift */; };
+		262A451F26AA2D2200873740 /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A451D26AA2D2200873740 /* IngredientsTableViewCell.swift */; };
+		262A452026AA2D2200873740 /* IngredientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262A451E26AA2D2200873740 /* IngredientsTableViewCell.xib */; };
+		262A452326AA2F5900873740 /* DrinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A452126AA2F5900873740 /* DrinksTableViewCell.swift */; };
+		262A452426AA2F5900873740 /* DrinksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262A452226AA2F5900873740 /* DrinksTableViewCell.xib */; };
+		262A452726AA340B00873740 /* DrinksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A452526AA340B00873740 /* DrinksCollectionViewCell.swift */; };
+		262A452826AA340B00873740 /* DrinksCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262A452626AA340B00873740 /* DrinksCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +65,12 @@
 		262A450E26A68DD100873740 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		262A451726A94B3000873740 /* AlcoholTypeApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlcoholTypeApiModel.swift; path = ../../../../../KAPTURE/DEV/Syntages/Syntages/Controller/SearchTab/AlcoholTypeApiModel.swift; sourceTree = "<group>"; };
 		262A451926A94B5D00873740 /* AlcoholTypeApiProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlcoholTypeApiProcessor.swift; path = ../../../../../KAPTURE/DEV/Syntages/Syntages/Controller/SearchTab/AlcoholTypeApiProcessor.swift; sourceTree = "<group>"; };
+		262A451D26AA2D2200873740 /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
+		262A451E26AA2D2200873740 /* IngredientsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientsTableViewCell.xib; sourceTree = "<group>"; };
+		262A452126AA2F5900873740 /* DrinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksTableViewCell.swift; sourceTree = "<group>"; };
+		262A452226AA2F5900873740 /* DrinksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinksTableViewCell.xib; sourceTree = "<group>"; };
+		262A452526AA340B00873740 /* DrinksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksCollectionViewCell.swift; sourceTree = "<group>"; };
+		262A452626AA340B00873740 /* DrinksCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinksCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +181,12 @@
 			children = (
 				262A450526A6826600873740 /* SearchViewController.swift */,
 				262A450E26A68DD100873740 /* ScannerViewController.swift */,
+				262A451D26AA2D2200873740 /* IngredientsTableViewCell.swift */,
+				262A451E26AA2D2200873740 /* IngredientsTableViewCell.xib */,
+				262A452126AA2F5900873740 /* DrinksTableViewCell.swift */,
+				262A452226AA2F5900873740 /* DrinksTableViewCell.xib */,
+				262A452526AA340B00873740 /* DrinksCollectionViewCell.swift */,
+				262A452626AA340B00873740 /* DrinksCollectionViewCell.xib */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -302,9 +320,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262A452026AA2D2200873740 /* IngredientsTableViewCell.xib in Resources */,
 				262A44E026A681C900873740 /* LaunchScreen.storyboard in Resources */,
 				262A44DD26A681C900873740 /* Assets.xcassets in Resources */,
 				262A44D826A681C600873740 /* Main.storyboard in Resources */,
+				262A452426AA2F5900873740 /* DrinksTableViewCell.xib in Resources */,
+				262A452826AA340B00873740 /* DrinksCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,15 +350,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262A451F26AA2D2200873740 /* IngredientsTableViewCell.swift in Sources */,
 				262A450F26A68DD100873740 /* ScannerViewController.swift in Sources */,
 				262A44D126A681C600873740 /* AppDelegate.swift in Sources */,
 				262A44D326A681C600873740 /* SceneDelegate.swift in Sources */,
 				262A451826A94B3000873740 /* AlcoholTypeApiModel.swift in Sources */,
 				262A450D26A6830500873740 /* ExploreViewController.swift in Sources */,
+				262A452326AA2F5900873740 /* DrinksTableViewCell.swift in Sources */,
 				262A450B26A682F000873740 /* ProfileViewController.swift in Sources */,
 				262A450626A6826600873740 /* SearchViewController.swift in Sources */,
 				262A451A26A94B5D00873740 /* AlcoholTypeApiProcessor.swift in Sources */,
 				262A44DB26A681C600873740 /* Syntages.xcdatamodeld in Sources */,
+				262A452726AA340B00873740 /* DrinksCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
