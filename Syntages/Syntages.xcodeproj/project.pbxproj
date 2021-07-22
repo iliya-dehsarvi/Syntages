@@ -19,8 +19,8 @@
 		262A450B26A682F000873740 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A450A26A682F000873740 /* ProfileViewController.swift */; };
 		262A450D26A6830500873740 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A450C26A6830500873740 /* ExploreViewController.swift */; };
 		262A450F26A68DD100873740 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A450E26A68DD100873740 /* ScannerViewController.swift */; };
-		262A451126A9139100873740 /* AlcoholTypeApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A451026A9139100873740 /* AlcoholTypeApiManager.swift */; };
-		262A451326A913C200873740 /* AlcoholTypeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A451226A913C200873740 /* AlcoholTypeResponseModel.swift */; };
+		262A451826A94B3000873740 /* AlcoholTypeApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A451726A94B3000873740 /* AlcoholTypeApiModel.swift */; };
+		262A451A26A94B5D00873740 /* AlcoholTypeApiProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A451926A94B5D00873740 /* AlcoholTypeApiProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		262A450A26A682F000873740 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		262A450C26A6830500873740 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		262A450E26A68DD100873740 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		262A451026A9139100873740 /* AlcoholTypeApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlcoholTypeApiManager.swift; path = ../../../../../KAPTURE/DEV/Syntages/Syntages/Controller/SearchTab/AlcoholTypeApiManager.swift; sourceTree = "<group>"; };
-		262A451226A913C200873740 /* AlcoholTypeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlcoholTypeResponseModel.swift; path = ../../../../../KAPTURE/DEV/Syntages/Syntages/Controller/SearchTab/AlcoholTypeResponseModel.swift; sourceTree = "<group>"; };
+		262A451726A94B3000873740 /* AlcoholTypeApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlcoholTypeApiModel.swift; path = ../../../../../KAPTURE/DEV/Syntages/Syntages/Controller/SearchTab/AlcoholTypeApiModel.swift; sourceTree = "<group>"; };
+		262A451926A94B5D00873740 /* AlcoholTypeApiProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlcoholTypeApiProcessor.swift; path = ../../../../../KAPTURE/DEV/Syntages/Syntages/Controller/SearchTab/AlcoholTypeApiProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				262A450426A6821F00873740 /* Delegate */,
-				262A450326A6820F00873740 /* Model */,
+				262A451426A9144000873740 /* Model */,
 				262A450226A6820800873740 /* Controller */,
 				262A450126A681FD00873740 /* View */,
 				262A44DC26A681C900873740 /* Assets.xcassets */,
@@ -155,15 +155,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		262A450326A6820F00873740 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				262A451026A9139100873740 /* AlcoholTypeApiManager.swift */,
-				262A451226A913C200873740 /* AlcoholTypeResponseModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		262A450426A6821F00873740 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +187,15 @@
 				262A450C26A6830500873740 /* ExploreViewController.swift */,
 			);
 			path = ExploreTab;
+			sourceTree = "<group>";
+		};
+		262A451426A9144000873740 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				262A451726A94B3000873740 /* AlcoholTypeApiModel.swift */,
+				262A451926A94B5D00873740 /* AlcoholTypeApiProcessor.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,14 +330,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				262A450F26A68DD100873740 /* ScannerViewController.swift in Sources */,
-				262A451326A913C200873740 /* AlcoholTypeResponseModel.swift in Sources */,
 				262A44D126A681C600873740 /* AppDelegate.swift in Sources */,
 				262A44D326A681C600873740 /* SceneDelegate.swift in Sources */,
+				262A451826A94B3000873740 /* AlcoholTypeApiModel.swift in Sources */,
 				262A450D26A6830500873740 /* ExploreViewController.swift in Sources */,
 				262A450B26A682F000873740 /* ProfileViewController.swift in Sources */,
 				262A450626A6826600873740 /* SearchViewController.swift in Sources */,
+				262A451A26A94B5D00873740 /* AlcoholTypeApiProcessor.swift in Sources */,
 				262A44DB26A681C600873740 /* Syntages.xcdatamodeld in Sources */,
-				262A451126A9139100873740 /* AlcoholTypeApiManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
