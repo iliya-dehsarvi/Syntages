@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - IngredientApiModel
 struct IngredientApiModel: Codable {
-    let ingredients: [Ingredient]
+    let drinks: [Ingredient]
 }
 
 // MARK: - Ingredient

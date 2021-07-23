@@ -32,6 +32,10 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="221" height="217"/>
+            <connections>
+                <outlet property="cocktailImage" destination="O4u-nf-EFz" id="VMn-zZ-vuy"/>
+                <outlet property="cocktailName" destination="mMn-v8-cac" id="2W2-7y-CMA"/>
+            </connections>
             <point key="canvasLocation" x="260.86956521739131" y="147.65625"/>
         </collectionViewCell>
     </objects>

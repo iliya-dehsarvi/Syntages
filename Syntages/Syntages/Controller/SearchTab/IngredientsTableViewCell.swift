@@ -10,6 +10,7 @@ import UIKit
 class IngredientsTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var imageBackground: UIView!
+	@IBOutlet weak var inegredientImage: UIImageView!
 	@IBOutlet weak var ingredientName: UILabel!
 	@IBOutlet weak var drinkSuggestionsCollectionView: UICollectionView!
 	
@@ -21,11 +22,12 @@ class IngredientsTableViewCell: UITableViewCell {
 		self.drinkSuggestionsCollectionView.register(UINib(nibName:"DrinksCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DrinksCollectionViewCellID")
 		imageBackground.layer.cornerRadius = 20
 		imageBackground.layer.masksToBounds = true
+		imageBackground.layer.borderWidth = 1
+		imageBackground.layer.borderColor = UIColor.systemPurple.cgColor
 		drinkSuggestionsCollectionView.delegate = self
 		drinkSuggestionsCollectionView.dataSource = self
-		if let alcoholType = ingredientName.text {
-			self.alcoholTypeApiProcessor.fetchCocktails(alcoholName: alcoholType)
-		}
+
+		print("oh hey")
 	}
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,6 +36,9 @@ class IngredientsTableViewCell: UITableViewCell {
 	
 	@IBAction func seeAllTapped(_ sender: UIButton) {
 		print("See All button was tapped for\(ingredientName.text!)")
+		if let alcoholType = ingredientName.text {
+			self.alcoholTypeApiProcessor.fetchCocktails(alcoholName: alcoholType)
+		}
 	}
 }
 
@@ -45,14 +50,16 @@ extension IngredientsTableViewCell: UICollectionViewDelegate {
 //MARK: - UICollectionViewDataSource
 extension IngredientsTableViewCell: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 5
+		print(self.drinks.count)
+		return self.drinks.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DrinksCollectionViewCellID", for: indexPath as IndexPath) as! DrinksCollectionViewCell
-		
-		
-		
+		cell.cocktailName.text = drinks[indexPath.row].strDrink
+		if let stringURL = URL(string: drinks[indexPath.row].strDrinkThumb) {
+			cell.cocktailImage.load(url: stringURL)
+		}
 		return cell
 	}
 }
@@ -68,9 +75,9 @@ extension IngredientsTableViewCell: AlcoholTypeDrinksDelegate {
 	
 	func didFailWithError(error: Error) {
 		DispatchQueue.main.async {
-//			let drink = Drink(strDrink: "No results found.", strDrinkThumb: "", idDrink: "")
-//			self.drinks = [drink]
-//			self.drinkSuggestionsCollectionView.reloadData()
+			//			let drink = Drink(strDrink: "No results found.", strDrinkThumb: "", idDrink: "")
+			//			self.drinks = [drink]
+			//			self.drinkSuggestionsCollectionView.reloadData()
 			print(error)
 			
 		}

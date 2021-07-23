@@ -8,7 +8,7 @@
 import Foundation
 
 protocol IngredientApiDelegate {
-	func didUpdateCocktailes(_ alcoholTypeApiProcessor: IngredientApiProcessor, ingredients: [Ingredient])
+	func didUpdateIngredient(_ alcoholTypeApiProcessor: IngredientApiProcessor, ingredients: [Ingredient])
 	func didFailWithError(error: Error)
 }
 
@@ -17,7 +17,7 @@ struct IngredientApiProcessor {
 	
 	var delegate: IngredientApiDelegate?
 	
-	func fetchCocktails(alcoholName: String) {
+	func fetchIngredient() {
 		performRequest(with: ingredientTypeURL)
 	}
 		
@@ -30,8 +30,8 @@ struct IngredientApiProcessor {
 					return
 				}
 				if let safeData = data {
-					if let ingredients = self.parseJSON(safeData) {
-						self.delegate?.didUpdateCocktailes(self, ingredients: ingredients)
+					if let ingredientsModel = self.parseJSON(safeData) {
+						self.delegate?.didUpdateIngredient(self, ingredients: ingredientsModel)
 					}
 				}
 			}
@@ -43,7 +43,10 @@ struct IngredientApiProcessor {
 		let decoder = JSONDecoder()
 		do {
 			let decodedData = try decoder.decode(IngredientApiModel.self, from: ingredientApiModel)
-			return decodedData.ingredients
+//			for i in decodedData.drinks {
+//				print(i.strIngredient1)
+//			}
+			return decodedData.drinks
 		} catch {
 			delegate?.didFailWithError(error: error)
 			return nil

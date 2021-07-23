@@ -8,10 +8,11 @@
 import UIKit
 
 class DrinksCollectionViewCell: UICollectionViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+	
+	@IBOutlet weak var cocktailImage: UIImageView!
+	@IBOutlet weak var cocktailName: UILabel!
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+	}
 }
