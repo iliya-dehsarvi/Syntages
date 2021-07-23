@@ -27,7 +27,7 @@ class SearchViewController: UIViewController {
 		self.seachBar.delegate = self
 		self.ingredientApiProcessor.delegate = self
 		self.ingredientApiProcessor.fetchIngredient()
-		self.historyTableView.rowHeight = 330
+		self.historyTableView.rowHeight = 310
 	}
 }
 //MARK: - UITableViewDelegate

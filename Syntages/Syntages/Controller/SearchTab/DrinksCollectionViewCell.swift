@@ -14,5 +14,9 @@ class DrinksCollectionViewCell: UICollectionViewCell {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
+		cocktailImage.layer.cornerRadius = 5
+		cocktailImage.layer.masksToBounds = true
+		cocktailImage.layer.borderWidth = 0.5
+		cocktailImage.layer.borderColor = UIColor.darkGray.cgColor
 	}
 }
