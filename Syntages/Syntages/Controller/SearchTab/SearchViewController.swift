@@ -49,7 +49,7 @@ extension SearchViewController: UITableViewDataSource {
 			cell.inegredientImage.load(url: stringURL)
 		}
 //
-		
+		cell.tempLoading.startAnimating()
 		
 		
 		//		cell.textLabel?.text = ingredients[indexPath.row].strDrink

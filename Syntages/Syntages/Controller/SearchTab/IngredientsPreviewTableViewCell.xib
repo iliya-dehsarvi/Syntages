@@ -41,33 +41,36 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                         <state key="normal" title="See All">
-                            <color key="titleColor" systemColor="systemOrangeColor"/>
+                            <color key="titleColor" systemColor="systemPinkColor"/>
                         </state>
                         <connections>
                             <action selector="seeAllButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dWW-tZ-CaM"/>
                         </connections>
                     </button>
-                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="O6j-Tj-vTR">
-                        <rect key="frame" x="132" y="510" width="165" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </pageControl>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NhQ-Aj-YtC">
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhQ-Aj-YtC">
                         <rect key="frame" x="0.0" y="74" width="428" height="428"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Efy-BT-Hb4">
+                                <rect key="frame" x="204" y="204" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13333329560000001" green="0.13333332540000001" blue="0.13333332540000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="contentLayoutGuide" id="cuI-hp-krV"/>
                         <viewLayoutGuide key="frameLayoutGuide" id="AOT-03-0QM"/>
                     </scrollView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Psv-bP-1OT">
-                        <rect key="frame" x="373" y="508" width="35" height="35"/>
+                        <rect key="frame" x="373" y="513.5" width="30" height="29"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <imageReference key="image" image="bookmark.circle" catalog="system"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwz-B4-mFo">
-                        <rect key="frame" x="20" y="509.5" width="35" height="32.5"/>
+                        <rect key="frame" x="20" y="514.5" width="30" height="29"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <imageReference key="image" image="heart.circle" catalog="system"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageReference key="image" image="hand.thumbsup.circle" catalog="system"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Long Island" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zww-24-G05">
                         <rect key="frame" x="20" y="554" width="388" height="15"/>
@@ -95,9 +98,19 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="tintColor" systemColor="systemPurpleColor"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                        <color key="textColor" systemColor="systemOrangeColor"/>
+                        <color key="textColor" systemColor="systemPinkColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kD3-ls-FvI">
+                        <rect key="frame" x="63" y="514.5" width="30" height="29"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageReference key="image" image="hand.thumbsdown.circle" catalog="system"/>
+                    </imageView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="O6j-Tj-vTR">
+                        <rect key="frame" x="132" y="515" width="165" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </pageControl>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             </tableViewCellContentView>
@@ -111,15 +124,17 @@
                 <outlet property="ingredientPhotoBackground" destination="3xo-yg-h7b" id="8GB-Of-GXk"/>
                 <outlet property="previewPageView" destination="O6j-Tj-vTR" id="aXx-02-efe"/>
                 <outlet property="previewScrollView" destination="NhQ-Aj-YtC" id="wG6-sv-0fn"/>
+                <outlet property="tempLoading" destination="Efy-BT-Hb4" id="KZX-Sm-hSc"/>
             </connections>
             <point key="canvasLocation" x="233.33333333333334" y="272.87946428571428"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="bookmark.circle" catalog="system" width="128" height="121"/>
-        <image name="heart.circle" catalog="system" width="128" height="121"/>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="hand.thumbsdown.circle" catalog="system" width="128" height="121"/>
+        <image name="hand.thumbsup.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

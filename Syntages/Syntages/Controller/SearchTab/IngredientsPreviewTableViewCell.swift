@@ -18,16 +18,17 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 	@IBOutlet weak var cocktailRecipe: UILabel!
 	@IBOutlet weak var cocktailHashtags: UILabel!
 	
+	@IBOutlet weak var tempLoading: UIActivityIndicatorView!
+	
 	var drinks: [Drink] = []
 	var alcoholTypeApiProcessor = AlcoholTypeApiProcessor()
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		
 		ingredientPhotoBackground.layer.cornerRadius = 20
 		ingredientPhotoBackground.layer.masksToBounds = true
 		ingredientPhotoBackground.layer.borderWidth = 1
-		ingredientPhotoBackground.layer.borderColor = UIColor.white.cgColor
+		ingredientPhotoBackground.layer.borderColor = UIColor.systemGray.cgColor
 		alcoholTypeApiProcessor.delegate = self
 		
 		if let alcoholType = ingredientName.text {
