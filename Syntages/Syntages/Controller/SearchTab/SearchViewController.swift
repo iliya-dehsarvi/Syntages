@@ -21,13 +21,13 @@ class SearchViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		self.historyTableView.register(UINib(nibName: "IngredientsTableViewCell", bundle: nil), forCellReuseIdentifier: "IngredientsTableViewCellID")
+		self.historyTableView.register(UINib(nibName: "IngredientsPreviewTableViewCell", bundle: nil), forCellReuseIdentifier: "IngredientsPreviewTableViewCellID")
 		self.historyTableView.delegate = self
 		self.historyTableView.dataSource = self
 		self.seachBar.delegate = self
 		self.ingredientApiProcessor.delegate = self
 		self.ingredientApiProcessor.fetchIngredient()
-		self.historyTableView.rowHeight = 310
+		self.historyTableView.rowHeight = 649
 	}
 }
 //MARK: - UITableViewDelegate
@@ -39,13 +39,16 @@ extension SearchViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientsTableViewCellID", for: indexPath) as! IngredientsTableViewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientsPreviewTableViewCellID", for: indexPath) as! IngredientsPreviewTableViewCell
+		
 		
 		cell.ingredientName.text = ingredients[indexPath.row].strIngredient1
+		
+//		cell.ingredientName.text = ingredients[indexPath.row].strIngredient1
 		if let stringURL = URL(string: ingredientsImageURL+ingredients[indexPath.row].strIngredient1+".png") {
 			cell.inegredientImage.load(url: stringURL)
 		}
-		
+//
 		
 		
 		

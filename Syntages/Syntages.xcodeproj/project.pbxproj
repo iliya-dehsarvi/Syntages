@@ -29,6 +29,8 @@
 		262A452826AA340B00873740 /* DrinksCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262A452626AA340B00873740 /* DrinksCollectionViewCell.xib */; };
 		262A452A26AA405A00873740 /* IngredientsApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A452926AA405A00873740 /* IngredientsApiModel.swift */; };
 		262A452C26AA407500873740 /* IngredientsApiProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A452B26AA407500873740 /* IngredientsApiProcessor.swift */; };
+		262A452F26AB7C1F00873740 /* IngredientsPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A452D26AB7C1E00873740 /* IngredientsPreviewTableViewCell.swift */; };
+		262A453026AB7C1F00873740 /* IngredientsPreviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262A452E26AB7C1F00873740 /* IngredientsPreviewTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		262A452626AA340B00873740 /* DrinksCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinksCollectionViewCell.xib; sourceTree = "<group>"; };
 		262A452926AA405A00873740 /* IngredientsApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IngredientsApiModel.swift; path = Syntages/Controller/SearchTab/IngredientsApiModel.swift; sourceTree = SOURCE_ROOT; };
 		262A452B26AA407500873740 /* IngredientsApiProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IngredientsApiProcessor.swift; path = Syntages/Controller/SearchTab/IngredientsApiProcessor.swift; sourceTree = SOURCE_ROOT; };
+		262A452D26AB7C1E00873740 /* IngredientsPreviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsPreviewTableViewCell.swift; sourceTree = "<group>"; };
+		262A452E26AB7C1F00873740 /* IngredientsPreviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientsPreviewTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,8 @@
 				262A450E26A68DD100873740 /* ScannerViewController.swift */,
 				262A451D26AA2D2200873740 /* IngredientsTableViewCell.swift */,
 				262A451E26AA2D2200873740 /* IngredientsTableViewCell.xib */,
+				262A452D26AB7C1E00873740 /* IngredientsPreviewTableViewCell.swift */,
+				262A452E26AB7C1F00873740 /* IngredientsPreviewTableViewCell.xib */,
 				262A452126AA2F5900873740 /* DrinksTableViewCell.swift */,
 				262A452226AA2F5900873740 /* DrinksTableViewCell.xib */,
 				262A452526AA340B00873740 /* DrinksCollectionViewCell.swift */,
@@ -328,6 +334,7 @@
 			files = (
 				262A452026AA2D2200873740 /* IngredientsTableViewCell.xib in Resources */,
 				262A44E026A681C900873740 /* LaunchScreen.storyboard in Resources */,
+				262A453026AB7C1F00873740 /* IngredientsPreviewTableViewCell.xib in Resources */,
 				262A44DD26A681C900873740 /* Assets.xcassets in Resources */,
 				262A44D826A681C600873740 /* Main.storyboard in Resources */,
 				262A452426AA2F5900873740 /* DrinksTableViewCell.xib in Resources */,
@@ -356,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262A452F26AB7C1F00873740 /* IngredientsPreviewTableViewCell.swift in Sources */,
 				262A451F26AA2D2200873740 /* IngredientsTableViewCell.swift in Sources */,
 				262A450F26A68DD100873740 /* ScannerViewController.swift in Sources */,
 				262A452A26AA405A00873740 /* IngredientsApiModel.swift in Sources */,
