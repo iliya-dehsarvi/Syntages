@@ -65,6 +65,8 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 					imgView.load(url: stringURL)
 				}
 			}
+			
+			
 		
 			
 		}
