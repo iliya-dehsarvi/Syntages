@@ -20,6 +20,8 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 	
 	@IBOutlet weak var tempLoading: UIActivityIndicatorView!
 	
+	var _frame: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
+
 	var drinks: [Drink] = []
 	var alcoholTypeApiProcessor = AlcoholTypeApiProcessor()
 	
@@ -36,8 +38,8 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 		}
 		
 		previewPageView.numberOfPages = 3
-		setupScreens()
-		
+		self.setupScreens()
+
 //		previewScrollView.delegate = self
 	}
 	
@@ -60,10 +62,13 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 //			self.previewScrollView.addSubview(imgView)
 
 			
-			
+
 			if let randomElement = drinks.randomElement() {
+
 				if let stringURL = URL(string: randomElement.strDrinkThumb) {
 					imgView.load(url: stringURL)
+					print("test")
+
 				}
 			}
 			
@@ -72,7 +77,7 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 			
 		}
 		previewScrollView.contentSize = CGSize(width: (previewScrollView.frame.size.width * CGFloat(3)), height: previewScrollView.frame.size.height)
-//		previewScrollView.delegate = self
+		previewScrollView.delegate = self
 	}
 	
 }
