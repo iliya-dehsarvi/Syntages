@@ -31,13 +31,12 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 		ingredientPhotoBackground.layer.masksToBounds = true
 		ingredientPhotoBackground.layer.borderWidth = 1
 		ingredientPhotoBackground.layer.borderColor = UIColor.systemGray.cgColor
-		alcoholTypeApiProcessor.delegate = self
+//		alcoholTypeApiProcessor.delegate = self
 		
-		if let alcoholType = ingredientName.text {
-			self.alcoholTypeApiProcessor.fetchCocktails(alcoholName: alcoholType)
-		}
+//		if let alcoholType = ingredientName.text {
+//			self.alcoholTypeApiProcessor.fetchCocktails(alcoholName: alcoholType)
+//		}
 		
-		print(drinks.count)
 		previewPageView.numberOfPages = 3
 		//		previewScrollView.delegate = self
 		
@@ -54,10 +53,13 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 	func setupScreens() {
 		previewScrollView.isPagingEnabled = true
 		
+		var pageCount = 0
+		if drinks.count < 3 {
+			pageCount = drinks.count
+		}
 		
 		
-		
-		for index in 0..<3 {
+		for index in 0..<pageCount {
 			frame.origin.x = previewScrollView.frame.size.width * CGFloat(index)
 			frame.size = previewScrollView.frame.size
 			
@@ -69,9 +71,10 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 			
 			
 			print("test")
-			
+			print(drinks.count)
+
 			if let randomElement = drinks.randomElement() {
-				
+
 				if let stringURL = URL(string: randomElement.strDrinkThumb) {
 					imgView.load(url: stringURL)
 					
@@ -82,7 +85,7 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 			
 			
 		}
-		previewScrollView.contentSize = CGSize(width: previewScrollView.frame.size.width * CGFloat(3), height: previewScrollView.frame.size.height)
+		previewScrollView.contentSize = CGSize(width: previewScrollView.frame.size.width * CGFloat(pageCount), height: previewScrollView.frame.size.height)
 	}
 	
 }
@@ -94,20 +97,20 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 //	    }
 //}
 
-//MARK: - AlcoholTypeDrinksDelegate
-extension IngredientsPreviewTableViewCell: AlcoholTypeDrinksDelegate {
-	func didUpdateCocktailes(_ alcoholTypeApiProcessor: AlcoholTypeApiProcessor, drinks: [Drink]) {
-		DispatchQueue.main.async {
-			print(drinks.count)
-			self.drinks = drinks
-		}
-	}
-	
-	func didFailWithError(error: Error) {
-		DispatchQueue.main.async {
-			print(error)
-		}
-	}
-}
-
+////MARK: - AlcoholTypeDrinksDelegate
+//extension IngredientsPreviewTableViewCell: AlcoholTypeDrinksDelegate {
+//	func didUpdateCocktailes(_ alcoholTypeApiProcessor: AlcoholTypeApiProcessor, drinks: [Drink]) {
+//		DispatchQueue.main.async {
+////			print(drinks.count)
+//			self.drinks = drinks
+//		}
+//	}
+//	
+//	func didFailWithError(error: Error) {
+//		DispatchQueue.main.async {
+//			print(error)
+//		}
+//	}
+//}
+//
 

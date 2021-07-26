@@ -14,7 +14,11 @@ class SearchViewController: UIViewController {
 	@IBOutlet weak var seachBar: UISearchBar!
 	//MARK: - Variables
 	var ingredientApiProcessor = IngredientApiProcessor()
+	var alcoholTypeApiProcessor = AlcoholTypeApiProcessor()
+
 	var ingredients: [Ingredient] = []
+	var drinks: [Drink] = []
+	
 	let ingredientsImageURL = "https://www.thecocktaildb.com/images/ingredients/"
 	//	var searchHistory: [Drink] = []
 	//MARK: - Methods
@@ -27,6 +31,7 @@ class SearchViewController: UIViewController {
 		self.seachBar.delegate = self
 		self.ingredientApiProcessor.delegate = self
 		self.ingredientApiProcessor.fetchIngredient()
+		self.alcoholTypeApiProcessor.delegate = self
 		self.historyTableView.rowHeight = 649
 	}
 }
@@ -40,7 +45,9 @@ extension SearchViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientsPreviewTableViewCellID", for: indexPath) as! IngredientsPreviewTableViewCell
-		
+		self.alcoholTypeApiProcessor.fetchCocktails(alcoholName: ingredients[indexPath.row].strIngredient1)
+		cell.drinks = self.drinks
+		print("Search: ", cell.drinks.count)
 		
 		cell.ingredientName.text = ingredients[indexPath.row].strIngredient1
 		
@@ -48,8 +55,12 @@ extension SearchViewController: UITableViewDataSource {
 		if let stringURL = URL(string: ingredientsImageURL+ingredients[indexPath.row].strIngredient1+".png") {
 			cell.inegredientImage.load(url: stringURL)
 		}
-//
+
+
 		cell.tempLoading.startAnimating()
+//		cell.setupScreens()
+//		cell.alcoholTypeApiProcessor.fetchCocktails(alcoholName: ingredients[indexPath.row].strIngredient1)
+		
 		
 		
 		//		cell.textLabel?.text = ingredients[indexPath.row].strDrink
@@ -107,6 +118,7 @@ extension SearchViewController: IngredientApiDelegate {
 	}
 }
 
+//MARK: - load method for UIImageView
 extension UIImageView {
 	func load(url: URL) {
 		DispatchQueue.global().async { [weak self] in
@@ -119,4 +131,21 @@ extension UIImageView {
 			}
 		}
 	}
+}
+
+
+//MARK: - AlcoholTypeDrinksDelegate
+extension SearchViewController: AlcoholTypeDrinksDelegate {
+	func didUpdateCocktailes(_ alcoholTypeApiProcessor: AlcoholTypeApiProcessor, drinks: [Drink]) {
+		DispatchQueue.main.async {
+//			print(drinks.count)
+			self.drinks = drinks
+		}
+	}
+	
+//	func didFailWithError(error: Error) {
+//		DispatchQueue.main.async {
+//			print(error)
+//		}
+//	}
 }
