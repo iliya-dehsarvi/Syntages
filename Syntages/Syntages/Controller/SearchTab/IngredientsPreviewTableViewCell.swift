@@ -21,7 +21,7 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 	@IBOutlet weak var tempLoading: UIActivityIndicatorView!
 	
 	var _frame: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
-
+	
 	var drinks: [Drink] = []
 	var alcoholTypeApiProcessor = AlcoholTypeApiProcessor()
 	
@@ -37,10 +37,11 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 			self.alcoholTypeApiProcessor.fetchCocktails(alcoholName: alcoholType)
 		}
 		
+		print(drinks.count)
 		previewPageView.numberOfPages = 3
+		//		previewScrollView.delegate = self
+		
 		self.setupScreens()
-
-//		previewScrollView.delegate = self
 	}
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,42 +52,46 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 	}
 	
 	func setupScreens() {
+		previewScrollView.isPagingEnabled = true
+		
+		
+		
+		
 		for index in 0..<3 {
 			frame.origin.x = previewScrollView.frame.size.width * CGFloat(index)
 			frame.size = previewScrollView.frame.size
 			
 			let imgView = UIImageView(frame: frame)
-//			if let stringURL = URL(string: drinks.randomElement().strDrinkThumb) {
-//				imgView.load(url: stringURL)
-//			}
-//			self.previewScrollView.addSubview(imgView)
-
+			//			if let stringURL = URL(string: drinks.randomElement().strDrinkThumb) {
+			//				imgView.load(url: stringURL)
+			//			}
+			//			self.previewScrollView.addSubview(imgView)
 			
-
+			
+			print("test")
+			
 			if let randomElement = drinks.randomElement() {
-
+				
 				if let stringURL = URL(string: randomElement.strDrinkThumb) {
 					imgView.load(url: stringURL)
-					print("test")
-
+					
 				}
 			}
 			
 			
-		
+			
 			
 		}
-		previewScrollView.contentSize = CGSize(width: (previewScrollView.frame.size.width * CGFloat(3)), height: previewScrollView.frame.size.height)
-		previewScrollView.delegate = self
+		previewScrollView.contentSize = CGSize(width: previewScrollView.frame.size.width * CGFloat(3), height: previewScrollView.frame.size.height)
 	}
 	
 }
-////MARK: - AlcoholTypeDrinksDelegate
+//MARK: - UIScrollViewDelegate
 //extension IngredientsPreviewTableViewCell: UIScrollViewDelegate {
-//	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//	    let pageNumber = previewScrollView.contentOffset.x / previewScrollView.frame.size.width
-//		previewPageView.currentPage = Int(pageNumber)
-//	}
+//	    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//		   var page = scrollView.contentOffset.x/scrollView.frame.size.width
+//		   pageControl.currentPage = Int(page)
+//	    }
 //}
 
 //MARK: - AlcoholTypeDrinksDelegate
