@@ -26,13 +26,14 @@ class SearchViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.historyTableView.register(UINib(nibName: "IngredientsPreviewTableViewCell", bundle: nil), forCellReuseIdentifier: "IngredientsPreviewTableViewCellID")
-		self.historyTableView.delegate = self
-		self.historyTableView.dataSource = self
 		self.seachBar.delegate = self
 		self.ingredientApiProcessor.delegate = self
 		self.ingredientApiProcessor.fetchIngredient()
 		self.alcoholTypeApiProcessor.delegate = self
 		self.historyTableView.rowHeight = 649
+		
+		self.historyTableView.delegate = self
+		self.historyTableView.dataSource = self
 	}
 }
 //MARK: - UITableViewDelegate
@@ -45,7 +46,6 @@ extension SearchViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientsPreviewTableViewCellID", for: indexPath) as! IngredientsPreviewTableViewCell
-		self.alcoholTypeApiProcessor.fetchCocktails(alcoholName: ingredients[indexPath.row].strIngredient1)
 		
 //		if let alcoholKey = ingredients[indexPath.row].strIngredient1 {
 //			cell.drinks = self.drinks[alcoholKey]
@@ -54,20 +54,20 @@ extension SearchViewController: UITableViewDataSource {
 		
 		cell.drinks = self.drinks[ingredients[indexPath.row].strIngredient1] ?? []
 		
-		
-		print("Search: ", cell.drinks.count)
-		
-		cell.ingredientName.text = ingredients[indexPath.row].strIngredient1
-		
-//		cell.ingredientName.text = ingredients[indexPath.row].strIngredient1
-		if let stringURL = URL(string: ingredientsImageURL+ingredients[indexPath.row].strIngredient1+".png") {
-			cell.inegredientImage.load(url: stringURL)
-		}
+		if cell.drinks.count > 3 {
+
+			print("Search: ", cell.drinks.count)
+			
+			cell.ingredientName.text = ingredients[indexPath.row].strIngredient1
+			
+	//		cell.ingredientName.text = ingredients[indexPath.row].strIngredient1
+			if let stringURL = URL(string: ingredientsImageURL+ingredients[indexPath.row].strIngredient1+".png") {
+				cell.inegredientImage.load(url: stringURL)
+			}
 
 
-		cell.tempLoading.startAnimating()
-		
-		if drinks.count > 3 {
+			cell.tempLoading.startAnimating()
+			
 			if let stringURL = URL(string: drinks[ingredients[indexPath.row].strIngredient1]?[0].strDrinkThumb ?? "") {
 				cell.cocktailImage1.load(url: stringURL)
 			}
@@ -121,6 +121,11 @@ extension SearchViewController: IngredientApiDelegate {
 	func didUpdateIngredient(_ alcoholTypeApiProcessor: IngredientApiProcessor, ingredients : [Ingredient]) {
 		DispatchQueue.main.async {
 			self.ingredients = ingredients
+			for ingredient in self.ingredients {
+				print(ingredient.strIngredient1)
+				self.alcoholTypeApiProcessor.fetchCocktails(alcoholName: ingredient.strIngredient1)
+			}
+			
 			
 //			for i in ingredients {
 //				print(i)
