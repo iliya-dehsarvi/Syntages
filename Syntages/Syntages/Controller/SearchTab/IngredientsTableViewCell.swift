@@ -26,7 +26,7 @@ class IngredientsTableViewCell: UITableViewCell {
 		imageBackground.layer.borderColor = UIColor.systemPurple.cgColor
 		drinkSuggestionsCollectionView.delegate = self
 		drinkSuggestionsCollectionView.dataSource = self
-		alcoholTypeApiProcessor.delegate = self
+//		alcoholTypeApiProcessor.delegate = self
 		let layout = UICollectionViewFlowLayout()
 		layout.scrollDirection = .horizontal
 		layout.itemSize = CGSize(width: 190, height: 330)
@@ -78,23 +78,23 @@ extension IngredientsTableViewCell: UICollectionViewDataSource {
 }
 
 //MARK: - AlcoholTypeDrinksDelegate
-extension IngredientsTableViewCell: AlcoholTypeDrinksDelegate {
-	func didUpdateCocktailes(_ alcoholTypeApiProcessor: AlcoholTypeApiProcessor, drinks: [Drink]) {
-		DispatchQueue.main.async {
-			self.drinks = drinks
-			print(drinks.count)
-			self.drinkSuggestionsCollectionView.reloadData()
-		}
-	}
-	
-	func didFailWithError(error: Error) {
-		DispatchQueue.main.async {
-			//			let drink = Drink(strDrink: "No results found.", strDrinkThumb: "", idDrink: "")
-			//			self.drinks = [drink]
-			//			self.drinkSuggestionsCollectionView.reloadData()
-			print(error)
-			
-		}
-	}
-}
+//extension IngredientsTableViewCell: AlcoholTypeDrinksDelegate {
+//	func didUpdateCocktailes(_ alcoholTypeApiProcessor: AlcoholTypeApiProcessor, drinks: [Drink]) {
+//		DispatchQueue.main.async {
+//			self.drinks = drinks
+//			print(drinks.count)
+//			self.drinkSuggestionsCollectionView.reloadData()
+//		}
+//	}
+//
+//	func didFailWithError(error: Error) {
+//		DispatchQueue.main.async {
+//			//			let drink = Drink(strDrink: "No results found.", strDrinkThumb: "", idDrink: "")
+//			//			self.drinks = [drink]
+//			//			self.drinkSuggestionsCollectionView.reloadData()
+//			print(error)
+//
+//		}
+//	}
+//}
 

@@ -17,13 +17,29 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 	@IBOutlet weak var cocktailName: UILabel!
 	@IBOutlet weak var cocktailRecipe: UILabel!
 	@IBOutlet weak var cocktailHashtags: UILabel!
-	
 	@IBOutlet weak var tempLoading: UIActivityIndicatorView!
 	
-	var _frame: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
-	
+	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var cocktailImage1: UIImageView!
+	@IBOutlet weak var cocktailImage2: UIImageView!
+	@IBOutlet weak var cocktailImage3: UIImageView!
+		
 	var drinks: [Drink] = []
 	var alcoholTypeApiProcessor = AlcoholTypeApiProcessor()
+	
+//	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//		let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+//		previewPageView.currentPage = Int(pageNumber)
+////		cocktailName.text = drinkNames[Int(pageNumber)]
+//		print(pageNumber)
+//	}
+	
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+				let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+				previewPageView.currentPage = Int(pageNumber)
+		//		cocktailName.text = drinkNames[Int(pageNumber)]
+				print(pageNumber)
+	}
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -38,7 +54,9 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 //		}
 		
 		previewPageView.numberOfPages = 3
-		//		previewScrollView.delegate = self
+		scrollView.showsHorizontalScrollIndicator = false
+
+		scrollView.delegate = self
 		
 		self.setupScreens()
 	}
@@ -51,50 +69,56 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 	}
 	
 	func setupScreens() {
-		previewScrollView.isPagingEnabled = true
+		scrollView.isPagingEnabled = true
 		
-		var pageCount = 0
-		if drinks.count < 3 {
-			pageCount = drinks.count
-		}
-		
-		
-		for index in 0..<pageCount {
-			frame.origin.x = previewScrollView.frame.size.width * CGFloat(index)
-			frame.size = previewScrollView.frame.size
+//		var pageCount = 0
+//		if drinks.count < 3 {
+//			pageCount = drinks.count
+//		}
+//
+//
+//		for index in 0..<pageCount {
+//			frame.origin.x = previewScrollView.frame.size.width * CGFloat(index)
+//			frame.size = previewScrollView.frame.size
+//
+//			let imgView = UIImageView(frame: frame)
+//			//			if let stringURL = URL(string: drinks.randomElement().strDrinkThumb) {
+//			//				imgView.load(url: stringURL)
+//			//			}
+//			//			self.previewScrollView.addSubview(imgView)
+//
+//
+//			print("test")
+//			print(drinks.count)
+//
+//			if let randomElement = drinks.randomElement() {
+//
+//				if let stringURL = URL(string: randomElement.strDrinkThumb) {
+//					imgView.load(url: stringURL)
+//
+//				}
+//			}
+//
+//
+//
+//
+//		}
 			
-			let imgView = UIImageView(frame: frame)
-			//			if let stringURL = URL(string: drinks.randomElement().strDrinkThumb) {
-			//				imgView.load(url: stringURL)
-			//			}
-			//			self.previewScrollView.addSubview(imgView)
-			
-			
-			print("test")
-			print(drinks.count)
-
-			if let randomElement = drinks.randomElement() {
-
-				if let stringURL = URL(string: randomElement.strDrinkThumb) {
-					imgView.load(url: stringURL)
-					
-				}
-			}
-			
-			
-			
-			
-		}
-		previewScrollView.contentSize = CGSize(width: previewScrollView.frame.size.width * CGFloat(pageCount), height: previewScrollView.frame.size.height)
+		scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(3), height: scrollView.frame.size.height)
+	
 	}
 	
 }
+
+
 //MARK: - UIScrollViewDelegate
 //extension IngredientsPreviewTableViewCell: UIScrollViewDelegate {
-//	    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//		   var page = scrollView.contentOffset.x/scrollView.frame.size.width
-//		   pageControl.currentPage = Int(page)
-//	    }
+//func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//	let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+//	previewPageView.currentPage = Int(pageNumber)
+////		cocktailName.text = drinkNames[Int(pageNumber)]
+//	print(pageNumber)
+//}
 //}
 
 ////MARK: - AlcoholTypeDrinksDelegate

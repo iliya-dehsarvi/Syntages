@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
 	var alcoholTypeApiProcessor = AlcoholTypeApiProcessor()
 
 	var ingredients: [Ingredient] = []
-	var drinks: [Drink] = []
+	var drinks: [String: [Drink]] = [:]
 	
 	let ingredientsImageURL = "https://www.thecocktaildb.com/images/ingredients/"
 	//	var searchHistory: [Drink] = []
@@ -46,7 +46,15 @@ extension SearchViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientsPreviewTableViewCellID", for: indexPath) as! IngredientsPreviewTableViewCell
 		self.alcoholTypeApiProcessor.fetchCocktails(alcoholName: ingredients[indexPath.row].strIngredient1)
-		cell.drinks = self.drinks
+		
+//		if let alcoholKey = ingredients[indexPath.row].strIngredient1 {
+//			cell.drinks = self.drinks[alcoholKey]
+//		}
+		
+		
+		cell.drinks = self.drinks[ingredients[indexPath.row].strIngredient1] ?? []
+		
+		
 		print("Search: ", cell.drinks.count)
 		
 		cell.ingredientName.text = ingredients[indexPath.row].strIngredient1
@@ -58,6 +66,20 @@ extension SearchViewController: UITableViewDataSource {
 
 
 		cell.tempLoading.startAnimating()
+		
+		if drinks.count > 3 {
+			if let stringURL = URL(string: drinks[ingredients[indexPath.row].strIngredient1]?[0].strDrinkThumb ?? "") {
+				cell.cocktailImage1.load(url: stringURL)
+			}
+			if let stringURL = URL(string: drinks[ingredients[indexPath.row].strIngredient1]?[1].strDrinkThumb ?? "") {
+				cell.cocktailImage2.load(url: stringURL)
+			}
+			if let stringURL = URL(string: drinks[ingredients[indexPath.row].strIngredient1]?[2].strDrinkThumb ?? "") {
+				cell.cocktailImage3.load(url: stringURL)
+			}
+		}
+		
+		
 //		cell.setupScreens()
 //		cell.alcoholTypeApiProcessor.fetchCocktails(alcoholName: ingredients[indexPath.row].strIngredient1)
 		
@@ -136,10 +158,10 @@ extension UIImageView {
 
 //MARK: - AlcoholTypeDrinksDelegate
 extension SearchViewController: AlcoholTypeDrinksDelegate {
-	func didUpdateCocktailes(_ alcoholTypeApiProcessor: AlcoholTypeApiProcessor, drinks: [Drink]) {
+	func didUpdateCocktailes(_ alcoholTypeApiProcessor: AlcoholTypeApiProcessor, drinks: [Drink], inegridient: String) {
 		DispatchQueue.main.async {
 //			print(drinks.count)
-			self.drinks = drinks
+			self.drinks[inegridient] = drinks
 		}
 	}
 	

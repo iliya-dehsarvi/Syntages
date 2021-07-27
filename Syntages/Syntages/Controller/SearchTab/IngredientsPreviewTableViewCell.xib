@@ -50,15 +50,35 @@
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhQ-Aj-YtC">
                         <rect key="frame" x="0.0" y="74" width="428" height="428"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.13333329560000001" green="0.13333332540000001" blue="0.13333332540000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="contentLayoutGuide" id="cuI-hp-krV"/>
+                        <viewLayoutGuide key="frameLayoutGuide" id="AOT-03-0QM"/>
+                    </scrollView>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oTj-Tt-NcT">
+                        <rect key="frame" x="0.0" y="74" width="428" height="428"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Efy-BT-Hb4">
                                 <rect key="frame" x="204" y="204" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lx1-y4-tbY">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="428"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dSK-Uv-Twf">
+                                <rect key="frame" x="856" y="0.0" width="428" height="428"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SiH-Oj-KgH">
+                                <rect key="frame" x="428" y="0.0" width="428" height="428"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.13333329560000001" green="0.13333332540000001" blue="0.13333332540000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <viewLayoutGuide key="contentLayoutGuide" id="cuI-hp-krV"/>
-                        <viewLayoutGuide key="frameLayoutGuide" id="AOT-03-0QM"/>
+                        <viewLayoutGuide key="contentLayoutGuide" id="uZH-5m-afC"/>
+                        <viewLayoutGuide key="frameLayoutGuide" id="foY-DE-QzK"/>
                     </scrollView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Psv-bP-1OT">
                         <rect key="frame" x="373" y="513.5" width="30" height="29"/>
@@ -117,6 +137,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cocktailHashtags" destination="nMY-Zz-3qJ" id="a3l-TH-kfZ"/>
+                <outlet property="cocktailImage1" destination="Lx1-y4-tbY" id="hNB-eE-DVa"/>
+                <outlet property="cocktailImage2" destination="dSK-Uv-Twf" id="Hd6-CF-RWA"/>
+                <outlet property="cocktailImage3" destination="SiH-Oj-KgH" id="Pxz-i0-Che"/>
                 <outlet property="cocktailName" destination="Zww-24-G05" id="vth-rQ-mlP"/>
                 <outlet property="cocktailRecipe" destination="p7F-JM-0Ga" id="czh-LO-lzC"/>
                 <outlet property="inegredientImage" destination="FBw-WZ-LIY" id="DbS-RA-2YO"/>
@@ -124,6 +147,7 @@
                 <outlet property="ingredientPhotoBackground" destination="3xo-yg-h7b" id="8GB-Of-GXk"/>
                 <outlet property="previewPageView" destination="O6j-Tj-vTR" id="aXx-02-efe"/>
                 <outlet property="previewScrollView" destination="NhQ-Aj-YtC" id="wG6-sv-0fn"/>
+                <outlet property="scrollView" destination="oTj-Tt-NcT" id="CRp-iD-Ejv"/>
                 <outlet property="tempLoading" destination="Efy-BT-Hb4" id="KZX-Sm-hSc"/>
             </connections>
             <point key="canvasLocation" x="233.33333333333334" y="272.87946428571428"/>
@@ -133,6 +157,9 @@
         <image name="bookmark.circle" catalog="system" width="128" height="121"/>
         <image name="hand.thumbsdown.circle" catalog="system" width="128" height="121"/>
         <image name="hand.thumbsup.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
