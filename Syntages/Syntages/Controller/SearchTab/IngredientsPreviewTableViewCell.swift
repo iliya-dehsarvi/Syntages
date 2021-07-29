@@ -37,17 +37,16 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 		let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
 		previewPageView.currentPage = Int(pageNumber)
-		if drinks.count > 3 {
-			cocktailName.text = drinks[Int(pageNumber)].strDrink
-		}
-		print(pageNumber)
+//		if drinks.count > 3 {
+		cocktailName.text = drinks[Int(pageNumber)].strDrink
+//		}
+//		print(pageNumber)
 	}
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		if drinks.count > 1 {
-			cocktailName.text = drinks[0].strDrink
-		}
+//		if drinks.count > 1 {
+//		}
 		ingredientPhotoBackground.layer.cornerRadius = 20
 		ingredientPhotoBackground.layer.masksToBounds = true
 		ingredientPhotoBackground.layer.borderWidth = 1
@@ -64,6 +63,7 @@ class IngredientsPreviewTableViewCell: UITableViewCell, UIScrollViewDelegate {
 		scrollView.delegate = self
 		
 		self.setupScreens()
+//		cocktailName.text = drinks[0].strDrink
 	}
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {

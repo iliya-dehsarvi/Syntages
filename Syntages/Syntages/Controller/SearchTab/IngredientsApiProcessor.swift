@@ -14,13 +14,10 @@ protocol IngredientApiDelegate {
 
 struct IngredientApiProcessor {
 	let ingredientTypeURL = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
-	
 	var delegate: IngredientApiDelegate?
-	
 	func fetchIngredient() {
 		performRequest(with: ingredientTypeURL)
 	}
-		
 	func performRequest(with urlString: String) {
 		if let url = URL(string: urlString) {
 			let session = URLSession(configuration: .default)
@@ -38,14 +35,10 @@ struct IngredientApiProcessor {
 			task.resume()
 		}
 	}
-	
 	func parseJSON(_ ingredientApiModel: Data) -> [Ingredient]? {
 		let decoder = JSONDecoder()
 		do {
 			let decodedData = try decoder.decode(IngredientApiModel.self, from: ingredientApiModel)
-//			for i in decodedData.drinks {
-//				print(i.strIngredient1)
-//			}
 			return decodedData.drinks
 		} catch {
 			delegate?.didFailWithError(error: error)

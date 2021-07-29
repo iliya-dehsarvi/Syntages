@@ -33,11 +33,11 @@ class IngredientsTableViewCell: UITableViewCell {
 		self.drinkSuggestionsCollectionView.collectionViewLayout = layout
 		self.drinkSuggestionsCollectionView.reloadData()
 		if let alcoholType = ingredientName.text {
-			print("fuck")
+//			print("fuck")
 			self.alcoholTypeApiProcessor.fetchCocktails(alcoholName: alcoholType)
 		}
 		
-		print("oh hey")
+//		print("oh hey")
 	}
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
@@ -58,7 +58,7 @@ extension IngredientsTableViewCell: UICollectionViewDelegate {
 //MARK: - UICollectionViewDataSource
 extension IngredientsTableViewCell: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		print(self.drinks.count)
+//		print(self.drinks.count)
 		return 5
 	}
 	
